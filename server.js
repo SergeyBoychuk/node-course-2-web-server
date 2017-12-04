@@ -36,7 +36,7 @@ hbs.registerHelper('screamIt', (text) => {
 });
 
 app.get('/', (req,res) => {
-    res.render('home.hbs', {
+    res.render('index.hbs', {
         pageTitle: 'Hello and welcome to Home Page 5',
         newContent: 'This is text in the body'
         // currentYear: new Date().getFullYear()

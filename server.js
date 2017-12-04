@@ -4,15 +4,15 @@ const fs = require('fs');
 
 
 
-var app = express();
+var server = express();
 
 const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials')
-app.set('view engine', 'hbs');
+server.set('view engine', 'hbs');
 
 
-app.use((req,res, next) => {
+server.use((req,res, next) => {
   var now = new Date().toString();
   var log = `${now}: ${req.method} ${req.url}`;
   console.log(log)
@@ -28,7 +28,7 @@ app.use((req,res, next) => {
 //   res.render('maint.hbs')
 // })
 
-app.use(express.static(__dirname + '/public'));
+server.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
@@ -38,20 +38,20 @@ hbs.registerHelper('screamIt', (text) => {
   return text.toUpperCase();
 })
 
-app.get('/about', (req,res) => {
+server.get('/about', (req,res) => {
   res.render('about.hbs', {
     pageTitle: 'About page'
   })
 })
 
-app.get('/', (req,res) => {
+server.get('/', (req,res) => {
   res.render('index.hbs', {
     pageTitle: 'home page',
     welcomeMessage: 'Index page'
   })
 })
 
-app.get('/bad', (req,res) => {
+server.get('/bad', (req,res) => {
   res.send({
     errorMessage: 'Error can not be found'
   })
@@ -59,6 +59,6 @@ app.get('/bad', (req,res) => {
 
 
 
-app.listen(port, function() {
+server.listen(port, function() {
   console.log(`listening on port ${port}`);
 });

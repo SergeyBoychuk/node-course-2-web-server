@@ -61,5 +61,6 @@ app.get('/bad', (req,res) => {
     res.send({errorMsg: 'unable'});
 });
 
-app.listen(port, ()=> {
-    console.log(`Server up on port: ${port}`);
+app.listen(port, () => {
+    console.log(`Server up on port: ${port}`)
+});

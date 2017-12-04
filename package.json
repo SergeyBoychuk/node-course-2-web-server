@@ -12,9 +12,10 @@
   "dependencies": {
     "express": "^4.16.2",
     "minimist": "^1.2.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "hbs": "^4.0.1"
   },
   "devDependencies": {
-    "hbs": "^4.0.1"
+    
   }
 }
